@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:Q1="http://dgtina.org/schema/exchange-model/1.0" elementFormDefault="qualified" targetNamespace="http://dgtina.org/schema/exchange-model/1.0">
+    <complexType name="ErrorMessageException">
+        <sequence>
+            <element name="errorCode" type="string"/>
+            <element name="comment" type="string"/>
+        </sequence>
+    </complexType>
+    <complexType name="Position">
+        <sequence>
+            <element maxOccurs="1" minOccurs="1" name="x" type="string"/>
+            <element maxOccurs="1" minOccurs="1" name="y" type="string"/>
+        </sequence>
+    </complexType>
+    <complexType name="PublicService">
+        <sequence>
+            <element maxOccurs="1" minOccurs="1" name="id" type="string"/>
+            <element maxOccurs="1" minOccurs="0" name="name" nillable="true" type="string"/>
+            <element maxOccurs="1" minOccurs="1" name="postalAddress" type="Q1:PostalAddress"/>
+            <element maxOccurs="1" minOccurs="1" name="contact" type="Q1:Contact"/>
+            <element maxOccurs="1" minOccurs="1" name="actorType" type="Q1:ActorTypeEnum"/>
+            <element maxOccurs="1" minOccurs="1" name="certificate" type="string"/>
+        </sequence>
+    </complexType>
+    <complexType name="Journey">
+        <sequence>
+            <element maxOccurs="2" minOccurs="1" name="idTransportUnit" type="string"/>
+            <element maxOccurs="1" minOccurs="1" name="nameTP1" type="string"/>
+            <element maxOccurs="1" minOccurs="1" name="nameTP2" type="string"/>
+            <element maxOccurs="1" minOccurs="1" name="startTime" type="dateTime"/>
+            <element maxOccurs="1" minOccurs="1" name="finishTime" type="dateTime"/>
+        </sequence>
+    </complexType>
+    <complexType name="TP2">
+        <sequence>
+            <element maxOccurs="1" minOccurs="1" name="id" type="string"/>
+            <element maxOccurs="1" minOccurs="0" name="name" nillable="true" type="string"/>
+            <element maxOccurs="1" minOccurs="1" name="postalAddress" type="Q1:PostalAddress"/>
+            <element maxOccurs="1" minOccurs="1" name="contact" type="Q1:Contact"/>
+            <element maxOccurs="1" minOccurs="1" name="url" type="string"/>
+            <element maxOccurs="1" minOccurs="1" name="certificate" type="string"/>
+        </sequence>
+    </complexType>
+    <complexType name="Carrier">
+        <sequence>
+            <element maxOccurs="1" minOccurs="1" name="id" type="string"/>
+            <element maxOccurs="1" minOccurs="0" name="companyName" nillable="true" type="string"/>
+            <element maxOccurs="1" minOccurs="1" name="contact" type="Q1:Contact"/>
+            <element maxOccurs="1" minOccurs="1" name="postalAddress" type="Q1:PostalAddress"/>
+        </sequence>
+    </complexType>
+    <complexType name="Contact">
+        <sequence>
+            <element maxOccurs="1" minOccurs="1" name="contactName" type="string"/>
+            <element maxOccurs="1" minOccurs="0" name="contactAddress" type="Q1:PostalAddress"/>
+            <element maxOccurs="1" minOccurs="0" name="contactTelephoneNumber" type="string"/>
+            <element maxOccurs="1" minOccurs="0" name="contactEmailAddress" type="string"/>
+            <element maxOccurs="1" minOccurs="0" name="contactResponsibility" type="string"/>
+            <element maxOccurs="1" minOccurs="0" name="additionalContactInformation" type="string"/>
+        </sequence>
+    </complexType>
+    <complexType name="PostalAddress">
+        <sequence>
+            <element maxOccurs="2" minOccurs="1" name="streetAddress" type="string"/>
+            <element maxOccurs="1" minOccurs="1" name="postalCode" type="string"/>
+            <element maxOccurs="1" minOccurs="1" name="region" type="string"/>
+            <element maxOccurs="1" minOccurs="1" name="country" type="string"/>
+        </sequence>
+    </complexType>
+    <simpleType name="ActorTypeEnum">
+        <restriction base="string">
+            <enumeration value="competentAuthority"/>
+            <enumeration value="emergencyResponders"/>
+            <enumeration value="enforcementBodies"/>
+            <enumeration value="securityBodies"/>
+        </restriction>
+    </simpleType>
+    <simpleType name="RequestReasonEnum">
+        <restriction base="string">
+            <enumeration value="emergencyServices"/>
+            <enumeration value="enforcementBodies"/>
+            <enumeration value="customs"/>
+            <enumeration value="infrastructureManagers"/>
+            <enumeration value="trafficManagers"/>
+            <enumeration value="statisticsProducers"/>
+            <enumeration value="preventiveSafety"/>
+        </restriction>
+    </simpleType>
+
+    <element name="ErrorMessageException" type="Q1:ErrorMessageException"/>
+
+    <element name="TP2" type="Q1:TP2"/>
+
+    <element name="Carrier" type="Q1:Carrier"/>
+
+    <element name="Journey" type="Q1:Journey"/>
+
+    <element name="PublicService" type="Q1:PublicService"/>
+</schema>
