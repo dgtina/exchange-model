@@ -1,5 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:Q1="http://dgtina.org/exchange-model/schema/exchange-model/1.0" elementFormDefault="qualified" targetNamespace="http://dgtina.org/exchange-model/schema/exchange-model/1.0">
+
+    <complexType name="TP1ResponseLogItem">
+        <attribute minOccurs="1" maxOccurs="1" name="TP1" type="string"/>
+        <attribute minOccurs="0" maxOccurs="1" name="TP2" type="string"/>
+        <attribute minOccurs="1" maxOccurs="1" name="documentsReceived" type="boolean"/>
+        <attribute minOccurs="0" maxOccurs="1" name="denyReason" type="Q1:ExtendedDgtDenyReasonEnum"/>
+    </complexType>
+    <complexType name="TP1ResponseLog">
+        <sequence>
+            <element name="item" type="Q1:TP1ResponseLogItem"/>
+        </sequence>
+    </complexType>
+    <element name="TP1ResponseLog" type="Q1:TP1ResponseLog"/>
+
+    <simpleType name="ExtendedDgtDenyReasonEnum">
+        <restriction base="string">
+            <enumeration value="unknownReason"/>
+            <enumeration value="notActiveTransportUnit"/>
+            <enumeration value="unknownTransportUnit"/>
+            <enumeration value="processingError"/>
+            <enumeration value="incompleteInformation"/>
+            <enumeration value="unknownCarrier"/>
+            <enumeration value="inactiveTransport"/>
+
+            <enumeration value="transportNotInQueryRegion"/>
+            <enumeration value="invalidResponseFromTP1"/>
+            <enumeration value="invalidResponseFromTP2"/>
+        </restriction>
+    </simpleType>
+
     <complexType name="ErrorMessageException">
         <sequence>
             <element name="errorCode" type="string"/>
