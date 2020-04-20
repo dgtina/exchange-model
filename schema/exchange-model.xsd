@@ -1,18 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:Q1="http://dgtina.org/exchange-model/schema/exchange-model/1.0" elementFormDefault="qualified" targetNamespace="http://dgtina.org/exchange-model/schema/exchange-model/1.0">
-
+<schema xmlns="http://www.w3.org/2001/XMLSchema" 
+    xmlns:Q1="http://dgtina.org/exchange-model/schema/exchange-model/1.0"
+    xmlns:D2LogicalModel="http://datex2.eu/schema/2/2_0" version="2.3" 
+    elementFormDefault="qualified" 
+    targetNamespace="http://dgtina.org/exchange-model/schema/exchange-model/1.0">
+    
+    <import namespace="http://datex2.eu/schema/2/2_0" schemaLocation="../../data-model/schema/DATEXIISchema_DGT_V2.xsd"/>
+    
     <complexType name="TP1ResponseLogItem">
-        <attribute minOccurs="1" maxOccurs="1" name="TP1" type="string"/>
-        <attribute minOccurs="0" maxOccurs="1" name="TP2" type="string"/>
-        <attribute minOccurs="1" maxOccurs="1" name="documentsReceived" type="boolean"/>
-        <attribute minOccurs="0" maxOccurs="1" name="denyReason" type="Q1:ExtendedDgtDenyReasonEnum"/>
-    </complexType>
-    <complexType name="TP1ResponseLog">
         <sequence>
-            <element name="item" type="Q1:TP1ResponseLogItem"/>
+            <element maxOccurs="1" minOccurs="1" name="tp1Identification" type="string"></element>
+            <element maxOccurs="1" minOccurs="1" name="TP2" type="Q1:TP2"></element>
+            <element maxOccurs="1" minOccurs="1" name="documentsReceived" type="D2LogicalModel:Boolean"></element>
+            <element maxOccurs="1" minOccurs="1" name="denyReason" type="D2LogicalModel:DgtDenyReasonEnum"></element>
         </sequence>
     </complexType>
-    <element name="TP1ResponseLog" type="Q1:TP1ResponseLog"/>
+
+    <complexType name="TP1ResponseLog">
+        <sequence>
+            <element maxOccurs="unbounded" minOccurs="1" name="item" type="Q1:TP1ResponseLogItem"/>
+        </sequence>
+    </complexType>
 
     <simpleType name="ExtendedDgtDenyReasonEnum">
         <restriction base="string">
@@ -126,4 +134,7 @@
     <element name="Journey" type="Q1:Journey"/>
 
     <element name="PublicService" type="Q1:PublicService"/>
+    
+    <element name="TP1ResponseLog" type="Q1:TP1ResponseLog"/>
+
 </schema>
