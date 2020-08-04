@@ -50,6 +50,7 @@
             <element maxOccurs="1" minOccurs="1" name="contact" type="Q1:Contact"/>
             <element maxOccurs="1" minOccurs="1" name="actorType" type="Q1:ActorTypeEnum"/>
             <element maxOccurs="1" minOccurs="1" name="certificate" type="string"/>
+            <element minOccurs="1" maxOccurs="1" name="areaOfCompetence" type="string"/>
         </sequence>
     </complexType>
     <complexType name="Journey">
