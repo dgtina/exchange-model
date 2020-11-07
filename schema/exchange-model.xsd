@@ -3,14 +3,10 @@
 
     <complexType name="Exchange">
        <sequence>
-       	<element maxOccurs="1" minOccurs="1" name="TP1"
-       		type="string" />
-       	<element maxOccurs="1" minOccurs="1" name="TP2"
-       		type="Q1:TP2" />
-
+       	<element maxOccurs="1" minOccurs="1" name="TP1" type="string" />
+       	<element maxOccurs="1" minOccurs="1" name="TP2" type="Q1:TP2" />
        	<element name="activationDate" type="dateTime"></element>
-       	<element maxOccurs="1" minOccurs="1" name="denyReason"
-       		type="Q1:DenyReasonEnum" />
+       	<element maxOccurs="1" minOccurs="0" name="denyReason" type="Q1:DenyReasonEnum" />
        </sequence>
     </complexType>
     <element name="Exchange" type="Q1:Exchange"/>
