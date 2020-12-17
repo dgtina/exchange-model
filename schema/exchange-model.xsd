@@ -1,20 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:Q1="http://dgtina.org/exchange-model/schema/exchange-model/1.0" elementFormDefault="qualified" targetNamespace="http://dgtina.org/exchange-model/schema/exchange-model/1.0">
 
-    <complexType name="TP1ResponseLogItem">
-        <attribute name="TP1" type="string"/>
-        <attribute name="TP2" type="string"/>
-        <attribute name="documentsReceived" type="boolean"/>
-        <attribute name="denyReason" type="Q1:ExtendedDgtDenyReasonEnum"/>
+    <complexType name="Exchange">
+       <sequence>
+       	<element maxOccurs="1" minOccurs="1" name="TP1" type="string" />
+       	<element maxOccurs="1" minOccurs="1" name="TP2" type="Q1:TP2" />
+       	<element name="activationDate" type="dateTime"></element>
+       	<element maxOccurs="1" minOccurs="0" name="denyReason" type="Q1:DenyReasonEnum" />
+       </sequence>
     </complexType>
-    <complexType name="TP1ResponseLog">
-        <sequence>
-            <element name="item" type="Q1:TP1ResponseLogItem"/>
-        </sequence>
-    </complexType>
-    <element name="TP1ResponseLog" type="Q1:TP1ResponseLog"/>
+    <element name="Exchange" type="Q1:Exchange"/>
 
-    <simpleType name="ExtendedDgtDenyReasonEnum">
+    <simpleType name="DenyReasonEnum">
         <restriction base="string">
             <enumeration value="unknownReason"/>
             <enumeration value="notActiveTransportUnit"/>
@@ -45,11 +42,12 @@
     <complexType name="PublicService">
         <sequence>
             <element maxOccurs="1" minOccurs="1" name="id" type="string"/>
-            <element maxOccurs="1" minOccurs="0" name="name" nillable="true" type="string"/>
+            <element maxOccurs="1" minOccurs="0" name="name" type="string"/>
             <element maxOccurs="1" minOccurs="1" name="postalAddress" type="Q1:PostalAddress"/>
             <element maxOccurs="1" minOccurs="1" name="contact" type="Q1:Contact"/>
             <element maxOccurs="1" minOccurs="1" name="actorType" type="Q1:ActorTypeEnum"/>
             <element maxOccurs="1" minOccurs="1" name="certificate" type="string"/>
+            <element minOccurs="1" maxOccurs="1" name="areaOfCompetence" type="string"/>
         </sequence>
     </complexType>
     <complexType name="Journey">
@@ -64,7 +62,7 @@
     <complexType name="TP2">
         <sequence>
             <element maxOccurs="1" minOccurs="1" name="id" type="string"/>
-            <element maxOccurs="1" minOccurs="0" name="name" nillable="true" type="string"/>
+            <element maxOccurs="1" minOccurs="1" name="name" type="string"/>
             <element maxOccurs="1" minOccurs="1" name="postalAddress" type="Q1:PostalAddress"/>
             <element maxOccurs="1" minOccurs="1" name="contact" type="Q1:Contact"/>
             <element maxOccurs="1" minOccurs="1" name="url" type="string"/>
@@ -74,7 +72,7 @@
     <complexType name="Carrier">
         <sequence>
             <element maxOccurs="1" minOccurs="1" name="id" type="string"/>
-            <element maxOccurs="1" minOccurs="0" name="companyName" nillable="true" type="string"/>
+            <element maxOccurs="1" minOccurs="0" name="companyName" type="string"/>
             <element maxOccurs="1" minOccurs="1" name="contact" type="Q1:Contact"/>
             <element maxOccurs="1" minOccurs="1" name="postalAddress" type="Q1:PostalAddress"/>
         </sequence>
