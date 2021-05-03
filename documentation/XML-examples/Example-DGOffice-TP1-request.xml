@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<soap:Body>
+		<getDGTDocument xmlns="http://dgtina.org/tp1/wsdl/tp1-internal/1.0">
+			<idTransportUnit>99-BAA-9</idTransportUnit>
+			<countryCode>NL</countryCode>
+			<requestReason>emergencyServices</requestReason>
+			<requestingParty>
+				<id xmlns="http://dgtina.org/exchange-model/schema/exchange-model/1.0">WebServiceTester</id>
+				<postalAddress xmlns="http://dgtina.org/exchange-model/schema/exchange-model/1.0">
+					<streetAddress>De Schans 19-21</streetAddress>
+					<postalCode>8231 KA</postalCode>
+					<country>NL</country>
+				</postalAddress>
+				<contact xmlns="http://dgtina.org/exchange-model/schema/exchange-model/1.0">
+					<contactName>Richard Kure</contactName>
+					<contactEmailAddress>r.kure@dgoffice.net</contactEmailAddress>
+				</contact>
+				<actorType xmlns="http://dgtina.org/exchange-model/schema/exchange-model/1.0">emergencyResponders</actorType>
+				<certificate xmlns="http://dgtina.org/exchange-model/schema/exchange-model/1.0">Hi There</certificate>
+				<areaOfCompetence xmlns="http://dgtina.org/exchange-model/schema/exchange-model/1.0">Testing</areaOfCompetence>
+			</requestingParty>
+		</getDGTDocument>
+	</soap:Body>
+</soap:Envelope>

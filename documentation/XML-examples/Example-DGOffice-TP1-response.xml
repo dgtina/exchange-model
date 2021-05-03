@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<soap:Body>
+		<getDGTDocumentResponse xmlns="http://dgtina.org/tp1/wsdl/tp1-internal/1.0">
+			<dgPublication modelBaseVersion="3">
+				<publicationTime xmlns="http://datex2.eu/schema/3/common">0001-01-01T00:00:00</publicationTime>
+				<dgTransport xmlns="http://datex2.eu/schema/3/dangerousGoodsTransport">
+					<dateTimeOfSignature>0001-01-01T00:00:00</dateTimeOfSignature>
+					<dgTransportUnit xsi:type="RoadVehicle">
+						<vehicleExtension>
+							<vehicleCountryOfOrigin xmlns="http://datex2.eu/schema/3/common">NL</vehicleCountryOfOrigin>
+							<vehicleRegistrationPlateIdentifier xmlns="http://datex2.eu/schema/3/common">99-BAA-9</vehicleRegistrationPlateIdentifier>
+							<vehicleCharacteristics xmlns="http://datex2.eu/schema/3/common">
+								<vehicleType>lorry</vehicleType>
+							</vehicleCharacteristics>
+						</vehicleExtension>
+					</dgTransportUnit>
+					<dgTransportUnit xsi:type="RoadVehicle">
+						<vehicleExtension>
+							<vehicleCountryOfOrigin xmlns="http://datex2.eu/schema/3/common">NL</vehicleCountryOfOrigin>
+							<vehicleRegistrationPlateIdentifier xmlns="http://datex2.eu/schema/3/common">OA-99-AA</vehicleRegistrationPlateIdentifier>
+							<vehicleCharacteristics xmlns="http://datex2.eu/schema/3/common">
+								<vehicleType>trailer</vehicleType>
+							</vehicleCharacteristics>
+						</vehicleExtension>
+					</dgTransportUnit>
+					<dgtDocument id="123test456">
+						<consignee/>
+						<consignor/>
+						<dgtDocumentEntry index="0">
+							<dgtDocumentEntry xsi:type="DGConsignmentDescriptionStatic" id="123test456.1">
+								<unitTotalQuantityOfDG>volume</unitTotalQuantityOfDG>
+								<deliverySale>false</deliverySale>
+								<waste>false</waste>
+								<salvagePackage>false</salvagePackage>
+								<limitedQuantity>false</limitedQuantity>
+								<packagingDiscardedEmptyUncleaned>false</packagingDiscardedEmptyUncleaned>
+								<dgDescriptionDetails>
+									<dangerLabel>dl3</dangerLabel>
+									<packingGroup>pgII</packingGroup>
+									<dgDescriptionADR>
+										<tunnelRestrictionCode>trcDE</tunnelRestrictionCode>
+									</dgDescriptionADR>
+									<unNumber>
+										<unNumber>1203</unNumber>
+</unNumber>
+									<properShippingName>
+										<properShippingName>
+											<values xmlns="http://datex2.eu/schema/3/common">
+												<value lang="EN">GASOLINE</value>
+											</values>
+										</properShippingName>
+									</properShippingName>
+								</dgDescriptionDetails>
+							</dgtDocumentEntry>
+						</dgtDocumentEntry>
+					</dgtDocument>
+				</dgTransport>
+			</dgPublication>
+			<exchange>
+				<TP1 xmlns="http://dgtina.org/exchange-model/schema/exchange-model/1.0">devtp1.DGOffice.net</TP1>
+				<TP2 xmlns="http://dgtina.org/exchange-model/schema/exchange-model/1.0">
+					<name>test.dgoffice.net</name>
+				</TP2>
+				<activationDate xmlns="http://dgtina.org/exchange-model/schema/exchange-model/1.0">2021-03-29T07:30:29.394Z</activationDate>
+			</exchange>
+		</getDGTDocumentResponse>
+	</soap:Body>
+</soap:Envelope>
