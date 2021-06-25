@@ -95,6 +95,12 @@
             <element maxOccurs="1" minOccurs="1" name="country" type="string"/>
         </sequence>
     </complexType>
+    <complexType name="TransportUnitIdentifier">
+        <sequence>
+            <element maxOccurs="1" minOccurs="1" name="identifier" type="string"/>
+            <element maxOccurs="1" minOccurs="1" name="idType" type="Q1:TransportUnitIdentifierTypeEnum"/>
+        </sequence>
+    </complexType>
     <simpleType name="ActorTypeEnum">
         <restriction base="string">
             <enumeration value="competentAuthority"/>
@@ -112,6 +118,18 @@
             <enumeration value="trafficManagers"/>
             <enumeration value="statisticsProducers"/>
             <enumeration value="preventiveSafety"/>
+        </restriction>
+    </simpleType>
+    <simpleType name="TransportUnitIdentifierTypeEnum">
+        <restriction base="string">
+            <enumeration value="licensePlateNumber"/>
+            <enumeration value="iso3CountryCode"/>
+            <enumeration value="vehicleIdentificationNumber"/>
+            <enumeration value="imoNumber"/>
+            <enumeration value="isoContainerNumber"/>
+            <enumeration value="wagonNumber"/>
+            <enumeration value="trainNumber"/>
+            <enumeration value="wagonPosition"/>
         </restriction>
     </simpleType>
 
