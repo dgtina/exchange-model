@@ -91,6 +91,7 @@
         <sequence>
             <element maxOccurs="2" minOccurs="1" name="streetAddress" type="string"/>
             <element maxOccurs="1" minOccurs="1" name="postalCode" type="string"/>
+            <element maxOccurs="1" minOccurs="1" name="cityName" type="string"/>
             <element maxOccurs="1" minOccurs="1" name="region" type="string"/>
             <element maxOccurs="1" minOccurs="1" name="country" type="string"/>
         </sequence>
